@@ -17,7 +17,7 @@ def recommend(movie):
     distances = sorted(list(enumerate(similarity[index])), reverse=True, key = lambda x:x[1])
     recommended_movies_name = []
     recommended_movies_poster = []
-    for i in distances[1:6]:
+    for i in distances[1:16]:
         movie_id = movies.iloc[i[0]]['movie_id']
         recommended_movies_poster.append(fetch_poster(movie_id))
         recommended_movies_name.append(movies.iloc[i[0]].title)
@@ -37,7 +37,9 @@ selected_movie = st.selectbox(
 
 if st.button('Show Recommendation'):
     recommended_movies_name, recommended_movies_poster = recommend(selected_movie)
-    col1, col2, col3, col4, col5 = st.columns(5)
+    col1, col2, col3, col4, col5  = st.columns(5)
+    col6, col7, col8, col9, col10 = st.columns(5)
+    col11, col12, col13, col14, col15 = st.columns(5)
     with col1:
         st.text(recommended_movies_name[0])
         st.image(recommended_movies_poster[0])
@@ -57,6 +59,46 @@ if st.button('Show Recommendation'):
     with col5:
         st.text(recommended_movies_name[4])
         st.image(recommended_movies_poster[4])
+    
+    with col6:
+        st.text(recommended_movies_name[5])
+        st.image(recommended_movies_poster[5])
+    
+    with col7:
+        st.text(recommended_movies_name[6])
+        st.image(recommended_movies_poster[6])
+    
+    with col8:
+        st.text(recommended_movies_name[7])
+        st.image(recommended_movies_poster[7])
+        
+    with col9:
+        st.text(recommended_movies_name[8])
+        st.image(recommended_movies_poster[8])
+    
+    with col10:
+        st.text(recommended_movies_name[9])
+        st.image(recommended_movies_poster[9])
+    
+    with col11:
+        st.text(recommended_movies_name[10])
+        st.image(recommended_movies_poster[10])
+    
+    with col12:
+        st.text(recommended_movies_name[11])
+        st.image(recommended_movies_poster[11])
+    
+    with col13:
+        st.text(recommended_movies_name[12])
+        st.image(recommended_movies_poster[12])
+        
+    with col14:
+        st.text(recommended_movies_name[13])
+        st.image(recommended_movies_poster[13])
+    
+    with col15:
+        st.text(recommended_movies_name[14])
+        st.image(recommended_movies_poster[14])
 
 
 
